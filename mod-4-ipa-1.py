@@ -83,16 +83,10 @@ def tic_tac_toe(board):
     for column in zip(*board):
         if len(set(column)) == 1 and column[0] != "":
             return(column[0])
-    if len(set([board[i][i] for i,v in enumerate(board)])) == 1:
-        if len(set([board[i][len(board)-i-1] for i,v in enumerate(board)])) == 1:
-            if board[0][len(board)-1] == "":
-                return("NO WINNER")
-            else:
-                return(board[0][len(board)-1])
-        elif board[0][0] == "":
-            return("NO WINNER")
-        else:
-            return(board[0][0])
+    if len(set([board[i][i] for i,v in enumerate(board)])) == 1 and board[0][0] != "":
+        return(board[0][0])
+    if len(set([board[i][len(board)-i-1] for i,v in enumerate(board)])) == 1 and board[0][len(board)-1] != "":
+        return(board[0][len(board)-1])
     else:
         return("NO WINNER")
 
