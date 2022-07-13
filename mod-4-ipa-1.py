@@ -121,13 +121,13 @@ def eta(first_stop, second_stop, route_map):
     '''
     # Replace `pass` with your code. 
     # Stay within the function. Only use the parameters as input. The function should return your answer.
-    total = 0
+    total_time = 0
     while True:
-        next_stops = [k[1] for k in route_map if k[0] == first_stop]
-        if next_stops:
-            next_stops = next_stops[0]
-            total += route_map[(first_stop, next_stops)]['travel_time_mins']
-            if next_stops == second_stop:
-                print(total)
+        next = [k[1] for k in route_map if k[0] == first_stop]
+        if next:
+            next = next[0]
+            total_time += route_map[(first_stop, next)]['travel_time_mins']
+            if next == second_stop:
+                print(total_time)
                 break
-            first_stop = next_stops
+            first_stop = next
